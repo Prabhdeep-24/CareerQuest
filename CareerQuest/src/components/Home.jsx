@@ -15,7 +15,7 @@ function Home() {
           Let Career Quest guide you to in-demand careers based on your
           passions!
         </p>
-        <button className="bg-blue-400 text-white px-8 py-3 rounded-full font-poppins font-semibold text-lg hover:bg-teal-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <button className="bg-blue-400 text-white px-8 py-3 rounded-full font-poppins font-semibold cursor-pointer text-lg hover:bg-teal-600 transition-all duration-300 shadow-lg hover:shadow-xl">
           Get Started
         </button>
       </div>
