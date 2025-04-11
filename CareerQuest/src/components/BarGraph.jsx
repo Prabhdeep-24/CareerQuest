@@ -14,8 +14,7 @@ import {
 Chart.register(CategoryScale, BarElement, LinearScale, Tooltip, Title, Legend);
 
 function BarGraph({ data, place }) {
-  const [maxValue,setMaxValue]=useState(Math.max(...data.datasets[0].data));
-  // console.log(maxValue)
+  // console.log(data)
   const options = {
     responsive: true,
     plugins: {
@@ -49,7 +48,7 @@ function BarGraph({ data, place }) {
         ticks: {
           font: {
             family: "poppins",
-            size: 12,
+            size: 10,
           },
           maxRotation: 0,
           minRotation: 0,
@@ -72,7 +71,7 @@ function BarGraph({ data, place }) {
       },
       y: {
         beginAtZero: true,
-        max: maxValue,
+        max: Math.max(...data.datasets[0].data),
         ticks: {
           font: {
             family: "poppins",

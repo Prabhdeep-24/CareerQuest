@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import BarGraph from "./BarGraph";
-import { dataIndia } from "../utilities/PackagesIndia";
-import { dataWorld } from "../utilities/PackagesWorld";
+import { dataIndia , descIndia} from "../utilities/PackagesIndia";
+
+import { dataWorld , descWorld} from "../utilities/PackagesWorld";
+import Professions from "./Professions";
 
 function Home() {
+  const [region, setRegion] = useState("India");
+
   return (
     <div className="flex flex-col items-center py-16 bg-gradient-to-br from-teal-50 via-blue-100 to-blue-200 min-h-screen">
       {/* Hero Section */}
@@ -45,6 +49,9 @@ function Home() {
       <hr className="w-1/2 border-t border-teal-400 border-2 my-12 rounded-full" />
 
       {/* Graphs Section */}
+      <h1 className="text-3xl font-poppins font-extrabold text-deep-blue mb-4 tracking-wide">
+        Famous Career Options
+      </h1>
       <div className="flex flex-col items-center w-full gap-16 px-6">
         <p className="text-lg max-w-4xl text-dark-gray font-poppins leading-relaxed">
           Curious about what pays and what’s trending? Our interactive charts
@@ -53,11 +60,42 @@ function Home() {
           a clear picture of where opportunity meets ambition. Let the numbers
           guide you as you chart your next big move.
         </p>
+          {
+            region==="India"?
+            <div>
+              <div className="flex justify-center gap-10 py-10">
+                <button className="bg-teal-600 text-white px-8 py-1 rounded-full font-poppins font-semibold cursor-pointer text-lg" onClick={()=>setRegion("India")}>
+                  India
+                </button>
+                <button className="bg-blue-400 text-white px-8 py-1 rounded-full font-poppins font-semibold cursor-pointer text-lg" onClick={()=>setRegion("World")}>
+                  World
+                </button>
+              </div>
+              <div className="flex flex-col items-center gap-10">
+                <BarGraph data={dataIndia} place={"India"}/>
+                <Professions desc={descIndia} profession={dataIndia.labels}/>
+              </div>
+            </div>
+          :
+          <div>
+            <div className="flex justify-center gap-10 py-10">
+              <button className="bg-blue-400 text-white px-8 py-1 rounded-full font-poppins font-semibold cursor-pointer text-lg" onClick={()=>setRegion("India")}>
+                India
+              </button>
+              <button className="bg-teal-600 text-white px-8 py-1 rounded-full font-poppins font-semibold cursor-pointer text-lg" onClick={()=>setRegion("World")}>
+                World
+              </button>
+            </div>
+            <div className="flex flex-col items-center gap-10">
+              <BarGraph data={dataWorld} place={"World"} />
+              <Professions desc={descWorld} profession={dataWorld.labels}/>
+            </div>
+          </div>
+          }
+
         <div className="flex justify-center w-full p-8 rounded-xl">
-          <BarGraph data={dataIndia} place="India" />
         </div>
         <div className="flex justify-center w-full p-8 rounded-xl">
-          <BarGraph data={dataWorld} place="World" />
         </div>
       </div>
     </div>
