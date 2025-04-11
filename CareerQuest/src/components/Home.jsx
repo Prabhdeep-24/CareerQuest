@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import BarGraph from "./BarGraph";
 import { dataIndia, descIndia } from "../utilities/PackagesIndia";
 import { dataWorld, descWorld } from "../utilities/PackagesWorld";
-import Professions from "./Professions";
+import Professions from "./FamousProfessions";
 
 function Home() {
   const [region, setRegion] = useState("India");
