@@ -15,7 +15,7 @@ export const dataIndia = {
     {
       label: "Avg package in India (in LPA)",
       data: [ 15, 25, 8.75, 12, 15, 20, 18, 12, 34, 17.5],
-      backgroundColor: "teal",
+      backgroundColor: "#00aaff",
     },
   ],
 };

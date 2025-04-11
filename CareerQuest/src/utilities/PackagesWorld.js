@@ -26,7 +26,7 @@ export const dataWorld = {
         200000,
         135000,
       ],
-      backgroundColor: "teal",
+      backgroundColor: "#3333ff",
     },
   ],
 };
