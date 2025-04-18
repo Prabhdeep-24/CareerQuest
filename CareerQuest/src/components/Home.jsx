@@ -3,6 +3,7 @@ import BarGraph from "./BarGraph";
 import { dataIndia, descIndia } from "../utilities/PackagesIndia";
 import { dataWorld, descWorld } from "../utilities/PackagesWorld";
 import Professions from "./FamousProfessions";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [region, setRegion] = useState("India");
@@ -18,7 +19,7 @@ function Home() {
           Let Career Quest guide you to in-demand careers based on your passions!
         </p>
         <button className="cursor-pointer bg-teal-600 text-white px-10 py-4 rounded-lg font-poppins font-semibold text-lg hover:bg-teal-700 transition-all duration-300 shadow-lg">
-          Get Started
+          <Link to="/Form">Get Started</Link>
         </button>
       </div>
 
@@ -75,7 +76,7 @@ function Home() {
               </button>
             </div>
             <div className="flex flex-col items-center gap-12">
-              <BarGraph data={dataIndia} place={"India"} />
+              <BarGraph data={dataIndia} place={"India"}/>
               <Professions desc={descIndia} profession={dataIndia.labels} />
             </div>
           </div>
