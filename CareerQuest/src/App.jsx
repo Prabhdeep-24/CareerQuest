@@ -3,18 +3,25 @@ import Home from "./components/Home"
 import MyCareerPath from "./components/MyCareerPath"
 import Navbar from "./components/Navbar"
 import {Routes,Route, BrowserRouter} from 'react-router-dom'
+import { FormProvider } from "./utilities/FormContext"
+import CareerDetails from "./components/CareerDetails"
+import CareerPath from "./components/CareerPath"
 
-MyCareerPath
+
 function App() {
   return(
     <div>
       <BrowserRouter>
+      <FormProvider>
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path="/Form" element={<Form/>}/>
           <Route path="/MyCareerPath" element={<MyCareerPath/>}/>
+          <Route path="/career/:careerTitle" element={<CareerDetails/>}/>
+          <Route path="/careerPath/:careerTitle" element={<CareerPath/>}/>
         </Routes>
+      </FormProvider>
       </BrowserRouter>
     </div>
   )
