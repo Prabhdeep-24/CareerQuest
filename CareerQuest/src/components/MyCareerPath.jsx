@@ -49,7 +49,7 @@ function MyCareerPath() {
 
   const navigate = useNavigate();
   return (
-    <div className="bg-gray-200 h-screen overflow-hidden flex gap-4">
+    <div className="bg-gray-200 max-h-screen overflow-hidden flex gap-4">
       {careeroptions.map((val, idx) => {
         return (
           <div

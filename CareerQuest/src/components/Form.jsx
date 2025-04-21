@@ -27,7 +27,7 @@ async function generateQuestion(
                 Important:
 
                 questions and questions should be humanized and small without symbols. Ask at most 6 questions.Be friendly and professional.
-                
+                Also Provide with a very small and easy understanding example to explain the question.
                 User's Responses:
                 questions asked:${questions} , answers given:${answers}.`,
     });
@@ -67,12 +67,9 @@ async function generateQuestion(
       .replace(/^JSON\s*/i, "")
       .trim();
 
-    // console.log(typeof(JSON.parse(cleanedText)));
     changeCareerOptions(JSON.parse(cleanedText));
     navigate("/MyCareerPath");
-    // console.log(response);
   }
-  // console.log(response.candidates[0].content.parts[0].text);
 }
 
 function Form() {
@@ -94,6 +91,33 @@ function Form() {
   const [typed, setTyped] = useState(false);
   const typeRef = useRef();
   const navigate = useNavigate();
+
+  function buttonClick(e){
+    if(value){
+      changeQuestion("Evaluating...");
+      typeRef.current.focus();
+      console.log(value);
+      const arr = [...answers, value];
+      changeAnswers(arr);
+      generateQuestion(
+        arr,
+        questions,
+        changeQuestion,
+        count,
+        changeCount,
+        changeQuestions,
+        setTyped,
+        changeCareerOptions,
+        navigate
+      );
+      changeValue("");
+    }
+  }
+  function onEnter(e){
+    if(e.key==="Enter"){
+      buttonClick(e);
+    }
+  }
   
   useEffect(()=>{
     if(localStorage.getItem('career')){
@@ -138,29 +162,12 @@ function Form() {
             onChange={(e) => {
               changeValue(e.target.value);
             }}
+            onKeyDown={(e)=>onEnter(e)}
           />
         </div>
         <button
           className="bg-teal-600 ml-auto mx-20 hover:text-white font-poppins font-semibold w-20 h-8 rounded-xl hover:bg-teal-700 hover:scale-110"
-          onClick={() => {
-            changeQuestion("Evaluating...");
-            typeRef.current.focus();
-            console.log(value);
-            const arr = [...answers, value];
-            changeAnswers(arr);
-            generateQuestion(
-              arr,
-              questions,
-              changeQuestion,
-              count,
-              changeCount,
-              changeQuestions,
-              setTyped,
-              changeCareerOptions,
-              navigate
-            );
-            changeValue("");
-          }}
+          onClick={(e) => {buttonClick(e)}}
         >
           Next
         </button>
