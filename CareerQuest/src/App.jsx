@@ -1,17 +1,17 @@
-import Form from "./components/Form"
-import Home from "./components/Home"
-import MyCareerPath from "./components/MyCareerPath"
-import Navbar from "./components/Navbar"
 import {Routes,Route, BrowserRouter} from 'react-router-dom'
 import { FormProvider } from "./utilities/FormContext"
-import CareerDetails from "./components/CareerDetails"
-import CareerPath from "./components/CareerPath"
-
+import { lazy } from "react"
+const Home=lazy(()=>import("./components/Home"));
+const Navbar=lazy(()=>import("./components/Navbar"))
+const MyCareerPath=lazy(()=>import("./components/MyCareerPath"))
+const CareerDetails=lazy(()=>import("./components/CareerDetails"))
+const CareerPath=lazy(()=>import("./components/CareerPath"))
+const Form=lazy(()=>import("./components/Form"))
 
 function App() {
   return(
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename='/CareerQuest'>
       <FormProvider>
         <Navbar/>
         <Routes>

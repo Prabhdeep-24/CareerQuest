@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import logo from '../assets/CareerQuestLogo.jpg'
 import { Link } from 'react-router-dom'
 
