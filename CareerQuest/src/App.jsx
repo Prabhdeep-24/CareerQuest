@@ -18,8 +18,8 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path="/Form" element={<Form/>}/>
           <Route path="/MyCareerPath" element={<MyCareerPath/>}/>
-          <Route path="/career/:careerTitle" element={<CareerDetails/>}/>
-          <Route path="/careerPath/:careerTitle" element={<CareerPath/>}/>
+          <Route path="/career/:title" element={<CareerDetails/>}/>
+          <Route path="/careerPath/:title" element={<CareerPath/>}/>
         </Routes>
       </FormProvider>
       </BrowserRouter>

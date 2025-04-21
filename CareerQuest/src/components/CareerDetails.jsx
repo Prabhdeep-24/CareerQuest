@@ -4,7 +4,7 @@ import { Typewriter } from "react-simple-typewriter";
 import { useLocation } from 'react-router-dom';
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyAXIuwnGgdgkhVinFtwGaEdPmriPBIGW-w",
+  apiKey: import.meta.env.VITE_GEMINI_KEY,
 });
 async function generate(setData,topic) {
     const response = await ai.models.generateContent({

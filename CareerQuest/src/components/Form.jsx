@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FormContext } from "../utilities/FormContext";
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyAXIuwnGgdgkhVinFtwGaEdPmriPBIGW-w",
+  apiKey: import.meta.env.VITE_GEMINI_KEY,
 });
 
 async function generateQuestion(
@@ -96,6 +96,11 @@ function Form() {
   const navigate = useNavigate();
   
   useEffect(()=>{
+    if(localStorage.getItem('career')){
+      const path=JSON.parse(localStorage.getItem('career'))
+      navigate(`/careerPath/${path}`)
+      return;
+    }
     if(careeroptions.length>0){
       navigate('/MyCareerPath');
     }

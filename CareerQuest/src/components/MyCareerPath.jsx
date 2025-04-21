@@ -5,10 +5,28 @@ import { generatePath, useNavigate } from "react-router-dom";
 import { GoogleGenAI } from "@google/genai";
 import axios from "axios";
 
-// AIzaSyDZiAN3fq0zrDxv1akVEd_Qr4omq5JcWMM
-
+async function generateImage(topic){
+  console.log(topic)
+  const API_KEY=import.meta.env.VITE_IMAGE_KEY;
+  const data=await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(topic.title)}`)
+  const response=await fetch(data.url)
+  console.log(response)
+}
 function MyCareerPath() {
   const { careeroptions, changeCareerOptions } = useContext(FormContext);
+
+  useEffect(()=>{
+    const career=JSON.parse(localStorage.getItem('career'));
+    if(career){
+      navigate(`/careerPath/${career}`)
+    }
+  })
+
+  useEffect(()=>{
+    if(careeroptions.length>0){
+      generateImage(careeroptions[0]);
+    }
+  },[careeroptions]);
 
   const navigate = useNavigate();
   return (

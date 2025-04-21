@@ -31,12 +31,12 @@ export const FormProvider=({children})=>{
     }
 
     function changeCareerOptions(options){
-        localStorage.setItem('career',JSON.stringify(options));
+        localStorage.setItem('careers',JSON.stringify(options));
         setCareeroptions(options);
     }
 
     useEffect(()=>{
-        const storedOptions=localStorage.getItem('career');
+        const storedOptions=localStorage.getItem('careers');
         if(storedOptions){
             setCareeroptions(JSON.parse(storedOptions));
         }
