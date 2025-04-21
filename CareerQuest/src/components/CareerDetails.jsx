@@ -52,7 +52,9 @@ async function generate(setData,topic) {
       .trim();
       
       console.log(JSON.parse(cleanedText));
+      localStorage.setItem(topic,cleanedText);
       setData(JSON.parse(cleanedText));
+
       return response.candidates[0].content.parts[0].text;
 }
 
@@ -63,8 +65,15 @@ function CareerDetails() {
     const {title}=location.state || {};
 
     useEffect(()=>{
-        generate(setData,title);
-    },[])
+        const details=localStorage.getItem(title);
+        console.log(details)
+        if(details){
+            setData(JSON.parse(details));
+        }
+        else{
+            generate(setData,title);
+        }
+    },[title])
 
   return (
     <div className='w-full h-full'>

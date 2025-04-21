@@ -10,7 +10,7 @@ function Home() {
 
   return (
     <div className="flex flex-col items-center bg-gray-100">
-      {/* Hero Section */}
+
       <div className="w-full flex flex-col items-center pt-24 pb-16 bg-gradient-to-r from-blue-900 to-emerald-600 text-white px-6 md:px-24">
         <h1 className="text-5xl md:text-6xl font-poppins font-extrabold text-white mb-6 tracking-tight drop-shadow-lg">
           Discover Your Dream Career
@@ -23,7 +23,7 @@ function Home() {
         </button>
       </div>
 
-      {/* Introduction Section */}
+
       <div className="introduction px-6 md:px-20 mt-10 mb-12">
         <h1 className="text-2xl md:text-3xl font-poppins font-bold text-gray-800 mb-4 tracking-tight">
           Introduction
@@ -44,10 +44,10 @@ function Home() {
         </p>
       </div>
 
-      {/* Divider */}
+
       <hr className="w-1/3 border-t-2 border-teal-500 my-10 rounded-md" />
 
-      {/* Graphs Section */}
+
       <h1 className="text-2xl md:text-3xl font-poppins font-bold text-gray-800 mb-6 tracking-tight">
         Famous Career Options
       </h1>

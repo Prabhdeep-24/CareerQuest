@@ -1,19 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../assets/CareerQuestLogo.jpg";
 import { FormContext } from "../utilities/FormContext";
 import { generatePath, useNavigate } from "react-router-dom";
 import { GoogleGenAI } from "@google/genai";
 import axios from "axios";
 
-async function generateImage(topic){
-  console.log(topic)
+async function generateImage(topic,setImages){
   const API_KEY=import.meta.env.VITE_IMAGE_KEY;
-  const data=await fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(topic.title)}`)
-  const response=await fetch(data.url)
-  console.log(response)
+  const title=`${topic.title} working in the office`
+  const data=await fetch(`https://api.pexels.com/v1/search?query=${title}&per_page=1`, {
+    headers: {
+      'Authorization': API_KEY
+    }
+  })
+  const response=await data.json();
+  const img=response.photos[0].src.medium;
+
+  if(img){
+    console.log(img)
+    setImages((prevImage)=>({
+      ...prevImage,
+      [topic.title]:img
+    }))
+  }
 }
 function MyCareerPath() {
   const { careeroptions, changeCareerOptions } = useContext(FormContext);
+  const [images,setImages]=useState({});
 
   useEffect(()=>{
     const careers=JSON.parse(localStorage.getItem('careers'));
@@ -28,24 +41,26 @@ function MyCareerPath() {
 
   useEffect(()=>{
     if(careeroptions.length>0){
-      generateImage(careeroptions[0]);
+      careeroptions.map((val,idx)=>{
+        generateImage(val,setImages);
+      })
     }
   },[careeroptions]);
 
   const navigate = useNavigate();
   return (
-    <div className="bg-gray-200 h-screen verflow-hidden flex gap-4">
+    <div className="bg-gray-200 h-screen overflow-hidden flex gap-4">
       {careeroptions.map((val, idx) => {
         return (
           <div
             key={idx}
-            className="bg-white flex flex-col items-center h-120 w-120 mx-2 my-20 hover:scale-102 duration-300"
+            className="bg-white flex flex-col justify-center items-center h-160 w-120 mx-2 my-20 hover:scale-102 duration-300"
           >
             <h1 className=" p-5 text-2xl text-teal-600 md:text-3xl font-poppins font-bold text-gray-800 mb-4 tracking-tight">
               {val.title}
             </h1>
 
-            <img src={val.image} alt="" height="200px" width="200px" />
+            <img src={images[val.title]} alt="" height="200px" width="200px" />
 
             <p className="font-poppins font-semibold text-l">
               {val.description}
