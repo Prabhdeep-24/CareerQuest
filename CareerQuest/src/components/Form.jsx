@@ -129,16 +129,16 @@ function Form() {
   })
 
   return (
-    <div className="bg-gray-100 flex flex-col items-center justify-center">
+    <div className="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
       <div className="flex justify-center p-5">
-        <h1 className="text-2xl md:text-3xl font-poppins font-bold h-10 p-5">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-poppins font-bold text-center">
           Fill this form to{" "}
           <b className="text-teal-600 font-semibold">Find your Career Path</b>
         </h1>
       </div>
-      <div className="bg-white w-200 h-150 m-2 shadow-xl flex flex-col">
-        <div className="m-2 p-20">
-          <div className="py-8 text-teal-600 font-semibold text-2xl">
+      <div className="bg-white w-full max-w-2xl m-2 shadow-xl flex flex-col p-6 sm:p-10 rounded-xl">
+        <div className="m-2">
+          <div className="py-8 text-teal-600 font-semibold text-lg md:text-2xl">
             {!typed ? (
               <Typewriter
                 words={[question]}
@@ -155,7 +155,7 @@ function Form() {
           <input
             ref={typeRef}
             type="text"
-            className="m-2 p-1 border-b-2 w-full font-poppins focus:outline-none"
+            className="m-2 p-2 border-b-2 w-full font-poppins focus:outline-none text-base md:text-lg"
             value={value}
             onChange={(e) => {
               changeValue(e.target.value);
@@ -164,7 +164,7 @@ function Form() {
           />
         </div>
         <button
-          className="bg-teal-600 ml-auto mx-20 hover:text-white font-poppins font-semibold w-20 h-8 rounded-xl hover:bg-teal-700 hover:scale-110"
+          className="bg-teal-600 ml-auto mr-2 mb-2 hover:text-white font-poppins font-semibold w-24 h-10 rounded-xl hover:bg-teal-700 hover:scale-105 transition-transform duration-200"
           onClick={(e) => {buttonClick(e)}}
         >
           Next

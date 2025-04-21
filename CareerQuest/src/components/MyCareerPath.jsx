@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { FormContext } from "../utilities/FormContext";
 import { useNavigate } from "react-router-dom";
 
-
 async function generateImage(topic,setImages){
   const API_KEY=import.meta.env.VITE_IMAGE_KEY;
   const title=`${topic.title} working in the office`
@@ -14,37 +13,38 @@ async function generateImage(topic,setImages){
   const response=await data.json();
   const img=response.photos[0].src.medium;
 
-  if(img){
+  if (img){
     setImages((prevImage)=>({
       ...prevImage,
       [topic.title]:img
-    }))
+    }));
   }
 }
+
 function MyCareerPath() {
   const { careeroptions, changeCareerOptions } = useContext(FormContext);
-  const [images,setImages]=useState({});
+  const [images, setImages] = useState({});
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const careers=JSON.parse(localStorage.getItem('careers'));
-    if(!careers){
+    if (!careers){
       navigate('/Form');
     }
     const career=JSON.parse(localStorage.getItem('career'));
-    if(career){
+    if (career){
       navigate(`/careerPath/${career}`);
     }
-  })
+  });
 
-  useEffect(()=>{
-    if(careeroptions.length>0){
-      careeroptions.map((val,idx)=>{
-        generateImage(val,setImages);
-      })
+  useEffect(() => {
+    if (careeroptions.length > 0) {
+      careeroptions.map((val, idx) => {
+        generateImage(val, setImages);
+      });
     }
   },[careeroptions]);
-
-  const navigate = useNavigate();
+  
   return (
     <div className="bg-gray-200 max-h-screen overflow-hidden flex gap-4">
       {careeroptions.map((val, idx) => {
@@ -53,7 +53,7 @@ function MyCareerPath() {
             key={idx}
             className="bg-white flex flex-col justify-center items-center h-160 w-120 mx-2 my-20 hover:scale-102 duration-300"
           >
-            <h1 className=" p-5 text-2xl text-teal-600 md:text-3xl font-poppins font-bold text-gray-800 mb-4 tracking-tight">
+            <h1 className="p-5 text-2xl text-teal-600 md:text-3xl font-poppins font-bold text-gray-800 mb-4 tracking-tight">
               {val.title}
             </h1>
 

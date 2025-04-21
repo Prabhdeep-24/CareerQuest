@@ -83,17 +83,17 @@ function CareerDetails() {
         {
             data.length>0 ? (
                 data.map((val,idx)=>{
-                    return <div className='p-10'>
+                    return <div key={idx} className='p-4 sm:p-10'>
                         <h1 className="text-2xl md:text-3xl font-poppins font-bold text-gray-800 mb-4 tracking-tight">{val.title}</h1>
                         <hr className="w-1/3 border-t-2 border-teal-500 rounded-md"/>
-                        <p className="text-lg text-xl mb-8 font-poppins leading-relaxed">
+                        <p className="text-base sm:text-lg mb-8 font-poppins leading-relaxed">
                             {val.description}
                         </p>
                     </div>
                 })
             ):
             (
-                <div className="py-8 text-teal-600 font-semibold text-2xl">
+                <div className="py-4 sm:py-8 text-teal-600 font-semibold text-xl sm:text-2xl">
                     <Typewriter 
                         words={["Loading..."]}
                         loop={false}

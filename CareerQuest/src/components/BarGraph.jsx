@@ -97,7 +97,7 @@ function BarGraph({ data, place }) {
   };
 
   return (
-    <div className="w-200 max-w-4xl h-[500px] bg-white p-8 rounded-xl shadow-lg hover:scale-105 duration-300 hover:shadow-2xl">
+    <div className="w-full max-w-4xl h-[70vh] sm:h-[500px] bg-white p-4 sm:p-8 rounded-xl shadow-lg hover:scale-105 duration-300 hover:shadow-2xl">
       <Bar options={options} data={data} className="w-full" />
     </div>
   );
