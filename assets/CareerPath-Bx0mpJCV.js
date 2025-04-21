@@ -1,4 +1,4 @@
-import{a as d,b as p,r as i,j as e}from"./index-BC7Os5j4.js";import{G as m}from"./index-CcM53O3_.js";import{d as u}from"./index-BTIh129Y.js";const h=new m({apiKey:"AIzaSyAfTciGt4WMBbZBUNo85V5tVa7edz3xl3E"});async function x(a,r){const s=(await h.models.generateContent({model:"gemini-2.0-flash",contents:` Given a career title, generate a well structured and well detailed  step-by-step career path in a format ready for a flowchart.
+import{a as d,b as p,r as i,j as e}from"./index-CIlH8VAY.js";import{G as m}from"./index-CcM53O3_.js";import{d as u}from"./index-TE-agS_H.js";const h=new m({apiKey:"AIzaSyAfTciGt4WMBbZBUNo85V5tVa7edz3xl3E"});async function x(a,r){const s=(await h.models.generateContent({model:"gemini-2.0-flash",contents:` Given a career title, generate a well structured and well detailed  step-by-step career path in a format ready for a flowchart.
 
             Structure the output in clearly separated stages.
             For each stage, include:

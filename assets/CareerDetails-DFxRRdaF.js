@@ -1,4 +1,4 @@
-import{r as i,a as r,j as t}from"./index-BC7Os5j4.js";import{G as l}from"./index-CcM53O3_.js";import{d}from"./index-BTIh129Y.js";const c=new l({apiKey:"AIzaSyAfTciGt4WMBbZBUNo85V5tVa7edz3xl3E"});async function p(a,e){const n=await c.models.generateContent({model:"gemini-2.0-flash",contents:`You are a professional Career Counselor.
+import{r as i,a as r,j as t}from"./index-CIlH8VAY.js";import{G as l}from"./index-CcM53O3_.js";import{d}from"./index-TE-agS_H.js";const c=new l({apiKey:"AIzaSyAfTciGt4WMBbZBUNo85V5tVa7edz3xl3E"});async function p(a,e){const n=await c.models.generateContent({model:"gemini-2.0-flash",contents:`You are a professional Career Counselor.
 
                     Your task is to explain the career path of ${e} to a student in a friendly, humanized, and easy-to-understand tone.
 
