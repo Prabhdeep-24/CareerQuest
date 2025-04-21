@@ -51,7 +51,6 @@ async function generate(setData,topic) {
       .replace(/^JSON\s*/i, "")
       .trim();
       
-      console.log(JSON.parse(cleanedText));
       localStorage.setItem(topic,cleanedText);
       setData(JSON.parse(cleanedText));
 
@@ -66,7 +65,6 @@ function CareerDetails() {
 
     useEffect(()=>{
         const details=localStorage.getItem(title);
-        console.log(details)
         if(details){
             setData(JSON.parse(details));
         }

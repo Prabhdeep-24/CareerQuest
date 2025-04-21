@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import logo from "../assets/CareerQuestLogo.jpg";
 import { FormContext } from "../utilities/FormContext";
-import { generatePath, useNavigate } from "react-router-dom";
-import { GoogleGenAI } from "@google/genai";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 async function generateImage(topic,setImages){
   const API_KEY=import.meta.env.VITE_IMAGE_KEY;
@@ -17,7 +15,6 @@ async function generateImage(topic,setImages){
   const img=response.photos[0].src.medium;
 
   if(img){
-    console.log(img)
     setImages((prevImage)=>({
       ...prevImage,
       [topic.title]:img

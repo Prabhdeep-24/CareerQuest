@@ -14,7 +14,6 @@ import {
 Chart.register(CategoryScale, BarElement, LinearScale, Tooltip, Title, Legend);
 
 function BarGraph({ data, place }) {
-  // console.log(data)
   const options = {
     responsive: true,
     plugins: {

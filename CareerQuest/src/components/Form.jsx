@@ -36,7 +36,6 @@ async function generateQuestion(
     setCount();
     setQuestions([...questions, newQuestion]);
     setTyped(false);
-    console.log(questions);
   } else {
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash",
@@ -96,7 +95,6 @@ function Form() {
     if(value){
       changeQuestion("Evaluating...");
       typeRef.current.focus();
-      console.log(value);
       const arr = [...answers, value];
       changeAnswers(arr);
       generateQuestion(

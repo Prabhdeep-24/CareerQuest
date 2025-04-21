@@ -60,7 +60,6 @@ async function generatePath(careerPath,setPath){
       .replace(/^JSON\s*/i, "")
       .trim();
       
-      console.log(cleanedPath);
       setPath(JSON.parse(cleanedPath));
       return cleanedPath;
 }
