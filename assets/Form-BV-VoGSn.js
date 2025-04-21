@@ -1,4 +1,4 @@
-import{r as i,F as j,u as C,j as e}from"./index-CptNLOzy.js";import{G as S}from"./index-CcM53O3_.js";import{d as A}from"./index-C0uWrdta.js";const w=new S({apiKey:"AIzaSyAfTciGt4WMBbZBUNo85V5tVa7edz3xl3E"});async function O(s,n,a,r,l,c,d,u,p){if(r<5){const o=(await w.models.generateContent({model:"gemini-2.0-flash",contents:`Act as a professional Career Counselor.Ask one question at a time based on previous answers and 
+import{r as i,F as j,u as C,j as e}from"./index-CYl2Pb4U.js";import{G as S}from"./index-CcM53O3_.js";import{d as A}from"./index-CHUGNRrM.js";const w=new S({apiKey:"AIzaSyAfTciGt4WMBbZBUNo85V5tVa7edz3xl3E"});async function O(s,n,a,r,l,c,d,u,p){if(r<5){const o=(await w.models.generateContent({model:"gemini-2.0-flash",contents:`Act as a professional Career Counselor.Ask one question at a time based on previous answers and 
 
                 Important:
 
