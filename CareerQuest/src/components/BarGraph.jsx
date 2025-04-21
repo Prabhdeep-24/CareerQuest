@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Bar } from "react-chartjs-2";
 
 import {
@@ -23,12 +23,12 @@ function BarGraph({ data, place }) {
         color: "teal",
         font: {
           family: "poppins",
-          size: 24,
+          size: 18, // Reduced for better fit
           weight: "bold",
         },
         padding: {
-          top: 20,
-          bottom: 20,
+          top: 10,
+          bottom: 10,
         },
       },
       legend: {
@@ -37,7 +37,7 @@ function BarGraph({ data, place }) {
         color: "teal",
         font: {
           family: "poppins",
-          size: 24,
+          size: 14, // Reduced font size
           weight: "bold",
         },
       },
@@ -47,7 +47,7 @@ function BarGraph({ data, place }) {
         ticks: {
           font: {
             family: "poppins",
-            size: 10,
+            size: 8, // Reduced for small screens
           },
           maxRotation: 0,
           minRotation: 0,
@@ -62,7 +62,7 @@ function BarGraph({ data, place }) {
 
             return lines;
           },
-          padding: 10,
+          padding: 5,
         },
         grid: {
           display: false,
@@ -74,7 +74,7 @@ function BarGraph({ data, place }) {
         ticks: {
           font: {
             family: "poppins",
-            size: 12,
+            size: 10, // Smaller font for y-axis
           },
           callback: (value) => {
             if (place === "India") return `${value} LPA`;
@@ -89,7 +89,7 @@ function BarGraph({ data, place }) {
           text: "Avg Package",
           font: {
             family: "poppins",
-            size: 20,
+            size: 14, // Reduced size for the axis title
           },
         },
       },
@@ -97,8 +97,8 @@ function BarGraph({ data, place }) {
   };
 
   return (
-    <div className="w-full max-w-4xl h-[70vh] sm:h-[500px] bg-white p-4 sm:p-8 rounded-xl shadow-lg hover:scale-105 duration-300 hover:shadow-2xl">
-      <Bar options={options} data={data} className="w-full" />
+    <div className="w-full max-w-4xl h-[60vh] sm:h-[500px] bg-white p-4 sm:p-8 rounded-xl shadow-lg hover:scale-105 duration-300 hover:shadow-2xl">
+      <Bar options={options} data={data} className="w-full h-full" />
     </div>
   );
 }
