@@ -77,6 +77,11 @@ function CareerDetails() {
 
   return (
     <div className='w-full h-full'>
+        <div className="bg-gradient-to-r from-teal-400 to-blue-600  shadow-xl w-full">
+            <h1 className="p-8 text-3xl md:text-5xl font-extrabold font-poppins text-white drop-shadow-sm text-center">
+                {title}
+            </h1>
+        </div>
         {
             data.length>0 ? (
                 data.map((val,idx)=>{

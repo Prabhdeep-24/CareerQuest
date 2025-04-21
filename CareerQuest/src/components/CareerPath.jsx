@@ -114,7 +114,7 @@ function CareerPath() {
                                     {
                                         val.resources.map((res,id)=>{
                                             return <li className='font-semibold fint-poppins px-15 py-2'>
-                                                    <a href={res.link}>
+                                                    <a href={res.link} target='_blank'>
                                                         {res.name}({res.type})
                                                     </a>
                                                 </li>
