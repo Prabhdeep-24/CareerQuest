@@ -16,9 +16,13 @@ function MyCareerPath() {
   const { careeroptions, changeCareerOptions } = useContext(FormContext);
 
   useEffect(()=>{
+    const careers=JSON.parse(localStorage.getItem('careers'));
+    if(!careers){
+      navigate('/Form');
+    }
     const career=JSON.parse(localStorage.getItem('career'));
     if(career){
-      navigate(`/careerPath/${career}`)
+      navigate(`/careerPath/${career}`);
     }
   })
 
